@@ -45,7 +45,8 @@ WEIGHTS = 'yolov8l.pt'
 
 model = YOLO(WEIGHTS)
 deepsort = DeepSort(
-    model_path=r'deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt.t7',
+    # model_path=r'deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt (2).t7', # OLD, TRAINED ON MARKET1501
+    model_path=r'deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt.t7', # NEW, TRAINED ON VIDEO DATASET VIDEOS
     max_dist=0.2,
     min_confidence=0.3,
     nms_max_overlap=0.5,
