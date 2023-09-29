@@ -44,8 +44,8 @@ class Extractor(object):
             features = self.net(im_batch)
         return features.cpu().numpy()
 
-# if __name__ == '__main__':
-#     img = cv2.imread("demo.jpg")[:, :, (2, 1, 0)]
-#     extr = Extractor("checkpoint/ckpt.t7")
-#     feature = extr(img)
-#     print(feature.shape)
+if __name__ == '__main__':
+    # img = cv2.imread("demo.jpg")[:, :, (2, 1, 0)]
+    extr = Extractor(48,r"deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt.t7")
+    # feature = extr(img)
+    # print(feature.shape)
