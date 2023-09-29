@@ -18,10 +18,8 @@ class DeepSort(object):
         self.extractor = Extractor(num_classes, model_path, use_cuda=use_cuda)
 
         max_cosine_distance = max_dist
-        metric = NearestNeighborDistanceMetric(
-            "cosine", max_cosine_distance, nn_budget)
-        self.tracker = Tracker(
-            metric, max_iou_distance=max_iou_distance, max_age=max_age, n_init=n_init)
+        metric = NearestNeighborDistanceMetric("cosine", max_cosine_distance, nn_budget)
+        self.tracker = Tracker(metric, max_iou_distance=max_iou_distance, max_age=max_age, n_init=n_init)
 
     def update(self, bbox_xywh, confidences, oids, ori_img):
         self.height, self.width = ori_img.shape[:2]
