@@ -52,7 +52,7 @@ def make_layers(c_in, c_out, repeat_times, is_downsample=False):
 
 
 class Net(nn.Module):
-    def __init__(self, num_classes=48, reid=False):
+    def __init__(self, num_classes, reid=False):
         super(Net, self).__init__()
         # 3 128 64
         self.conv = nn.Sequential(
@@ -101,9 +101,9 @@ class Net(nn.Module):
         return x
 
 
-if __name__ == '__main__':
-    net = Net()
-    x = torch.randn(4, 3, 128, 64)
-    y = net(x)
-    import ipdb
-    ipdb.set_trace()
+# if __name__ == '__main__':
+#     net = Net()
+#     x = torch.randn(4, 3, 128, 64)
+#     y = net(x)
+#     import ipdb
+#     ipdb.set_trace()
