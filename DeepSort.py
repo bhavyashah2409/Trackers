@@ -41,7 +41,7 @@ from ultralytics import YOLO
 from deep_sort_pytorch.deep_sort import DeepSort
 
 VIDEO = r"C:\Users\aicpl\ShipsDatasets\VideoDataset\videos\video_40.mp4"
-WEIGHTS = 'yolov8l.pt'
+WEIGHTS = 'best.pt'
 
 model = YOLO(WEIGHTS)
 deepsort = DeepSort(
