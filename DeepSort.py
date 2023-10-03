@@ -42,17 +42,15 @@ from deep_sort_pytorch.deep_sort import DeepSort
 
 VIDEO = r"C:\Users\aicpl\ShipsDatasets\VideoDataset\videos\video_40.mp4"
 WEIGHTS = 'best.pt'
-# CKPT = r'deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt (2).t7', # OLD, TRAINED ON MARKET1501
-# NUM_CLASSES = 751
 CKPT = r'deep_sort_pytorch\deep_sort\deep\checkpoint\ckpt.t7', # NEW, TRAINED ON VIDEO DATASET VIDEOS
 
 model = YOLO(WEIGHTS)
 deepsort = DeepSort(
     model_path=CKPT,
     max_dist=0.2,
-    min_confidence=0.3,
+    min_confidence=0.5,
     nms_max_overlap=0.5,
-    max_iou_distance=0.7,
+    max_iou_distance=0.5,
     max_age=70,
     n_init=5,
     nn_budget=100,
@@ -64,7 +62,7 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
-    preds = model.predict(frame)[0].cpu()
+    preds = model.predict(frame, conf=0.5, iou=0.5)[0].cpu()
     classes = preds.names
     preds = preds.boxes
     xywhs = preds.xywh
