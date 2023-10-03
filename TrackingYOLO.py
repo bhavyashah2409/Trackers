@@ -12,7 +12,7 @@ while cap.isOpened():
         results = model.track(frame, conf=0.65, iou=0.8, persist=True)
         annotated_frame = results[0].plot()
         cv2.imshow("YOLOv8 Tracking", annotated_frame)
-        if cv2.waitKey(1) & 0xFF == ord("q"):
+        if cv2.waitKey(1) == 27:
             break
     else:
         break
