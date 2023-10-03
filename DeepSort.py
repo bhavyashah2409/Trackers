@@ -52,7 +52,7 @@ deepsort = DeepSort(
     nms_max_overlap=0.5,
     max_iou_distance=0.5,
     max_age=70,
-    n_init=5,
+    n_init=8,
     nn_budget=100,
     use_cuda=True
     )
